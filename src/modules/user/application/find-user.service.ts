@@ -11,7 +11,7 @@ export class FindUserService {
     return await this.userRepository.find()
   }
 
-  async findById(id: number) {
+  async findById(id: string) {
     return await this.userRepository.findById(id)
   }
 

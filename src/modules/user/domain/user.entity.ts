@@ -5,16 +5,16 @@ import { compareSync, hashSync } from "bcrypt";
 @Entity('user')
 export class UserEntity extends EntityBase {
   @Column({ type: 'varchar', nullable: false, unique: true })
-  private username: string
+  username: string
 
   @Column({ type: 'varchar', nullable: false, select: false })
-  private password: string
+  password: string
 
   @Column({ type: 'varchar', nullable: true })
-  private realName?: string
+  realName?: string
 
   @Column({ type: 'varchar', nullable: true })
-  private status?: string
+  status?: string
 
   constructor(username: string, password: string, realName?: string) {
     super()

@@ -1,2 +1,2 @@
 export * from './auth.module'
-export { JwtPayload } from './services/auth.service'
+export { JwtPayload } from './application/auth.service'

@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { UserRepository } from "./infrastructure/user.repository";
-import { FindUserService } from "./services/find-user.service";
-import { CreateUserService } from "./services/create-user.service";
+import { FindUserService } from "./application/find-user.service";
+import { CreateUserService } from "./application/create-user.service";
 import { UserController } from "./controllers/user.controller";
 import { UserEntity } from "./domain/user.entity";
-import { UpdateUserService } from "./services/update-user.service";
+import { UpdateUserService } from "./application/update-user.service";
 
 @Module({
   controllers: [

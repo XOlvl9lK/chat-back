@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Post, Put, UseGuards } from "@nestjs/common";
-import { FindUserService } from "../services/find-user.service";
-import { CreateUserService } from "../services/create-user.service";
+import { FindUserService } from "../application/find-user.service";
+import { CreateUserService } from "../application/create-user.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { JwtAuthGuard } from "../../auth/infrastructure/jwt-auth.guard";
 import { UserId } from "@core/libs/user-id.decorator";
-import { UpdateUserService } from "../services/update-user.service";
+import { UpdateUserService } from "../application/update-user.service";
 import { UpdateProfileDto } from "./dto/update-profile.dto";
 
 @Controller('user')
@@ -23,7 +23,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get('current')
-  async getCurrent(@UserId() userId: number) {
+  async getCurrent(@UserId() userId: string) {
     return this.findUserService.findById(userId)
   }
 
@@ -34,7 +34,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Put('profile')
-  async updateProfile(@UserId() userId: number, @Body() dto: UpdateProfileDto) {
+  async updateProfile(@UserId() userId: string, @Body() dto: UpdateProfileDto) {
     return await this.updateUserService.updateProfile(userId, dto.username, dto.realName, dto.status)
   }
 }

@@ -8,10 +8,10 @@ export class UpdateUserService {
     private userRepository: UserRepository
   ) {}
 
-  async updateProfile(id: number, username: string, realName?: string, status?: string) {
+  async updateProfile(id: string, username: string, realName?: string, status?: string) {
     const user = await this.userRepository.findById(id)
     if (!user) UserException.NotFound()
     user.update(username, realName, status)
-    await this.userRepository.save(user)
+    return await this.userRepository.save(user)
   }
 }

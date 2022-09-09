@@ -13,7 +13,7 @@ export class UserRepository extends RepositoryBase<UserEntity> {
     super(repository)
   }
 
-  findById(id: number) {
+  findById(id: string) {
     return this.findOne({
       where: {
         id

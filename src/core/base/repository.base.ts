@@ -12,8 +12,8 @@ export class RepositoryBase<T extends EntityBase> {
     return this.repo
   }
 
-  save(user: T) {
-    return this.repository.save(user)
+  save(entity: T) {
+    return this.repository.save(entity)
   }
 
   find(options?: FindManyOptions<T>) {

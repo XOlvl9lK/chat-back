@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist/interfaces/typeorm-options.interface";
 import { UserEntity } from "../../modules/user";
+import { MessageEntity } from "../../modules/message";
 
 export const OrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -9,7 +10,8 @@ export const OrmConfig: TypeOrmModuleOptions = {
   password: 'root',
   database: 'chat',
   entities: [
-    UserEntity
+    UserEntity,
+    MessageEntity
   ],
   synchronize: true
 }
